@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+    $("body").append("<button id='fechaBtn'>Fecha</button>");
+    $("body").append("<p id='fechaPnt'></p>");
+    $("#fechaBtn").click(function(){
+        var hoy = new Date();
+        $("#fechaPnt").html("Hora: "+hoy.getHours()+":"+hoy.getMinutes()+":"+hoy.getSeconds());
+    });
+
+    $("#suma").click(function(){
+        let n1 = parseInt($("div[contenteditable]:eq(0)").text());
+        let n2 = parseInt($("div[contenteditable]:eq(1)").text());
+        if(validarNum(n1, n2)) $("#resultado").html("------------<br><strong>"+ (n1 + n2) +"</strong>");
+        else $("#resultado").html("------------<br><strong>Valores erroneos</strong>");
+    });
+    $("#resta").click(function(){
+        let n1 = parseInt($("div[contenteditable]:eq(0)").text());
+        let n2 = parseInt($("div[contenteditable]:eq(1)").text());
+        $("#resultado").html("------------<br><strong>"+ (n1 - n2) +"</strong>");
+    });
+    $("#multi").click(function(){
+        let n1 = parseInt($("div[contenteditable]:eq(0)").text());
+        let n2 = parseInt($("div[contenteditable]:eq(1)").text());
+        $("#resultado").html("------------<br><strong>"+ (n1 * n2) +"</strong>");
+    });
+    $("#divi").click(function(){
+        let n1 = parseInt($("div[contenteditable]:eq(0)").text());
+        let n2 = parseInt($("div[contenteditable]:eq(1)").text());
+        $("#resultado").html("------------<br><strong>"+ (n1 / n2) +"</strong>");
+    });
+
+    $("div[contenteditable]").blur(function(){
+        let aux = parseInt($(this).text());
+        if(isNaN(aux)) $(this).text("Num invalido");
+    });
+    $("div[contenteditable]").click(function(){
+        $(this).empty()
+    });
+    function validarNum(n1 , n2){
+        if(isNaN(n1) || isNaN(n2)) return false;
+        else return true;
+    }
+
+   
+
+});
+
+
+</script>
+
+</head>
+<body>
+<div contenteditable="true">Num 1</div>
+<div contenteditable="true">Num 2</div>
+<div id="resultado">Resultado: </div>
+<button id="suma">+</button>
+<button id="resta">-</button>
+<button id="multi">x</button>
+<button id="divi">/</button> 
+
+</body>
+</html>

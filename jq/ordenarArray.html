@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+</head>
+<body>
+<div id="numeros"></div>
+<div id="ordenacion"></div>
+<div id="numCaracteres"></div>
+<div id="sinOrdenacion"></div>
+<div id="ordenacionMayus"></div>
+<script>
+var array=["Uno", "dos", "tres", "cuatro"];
+numeros.innerHTML=array.length;
+var nuevaArray=array.slice();
+for(let i=0; i<nuevaArray.length;i++){
+    nuevaArray[i] = nuevaArray[i].toLowerCase();
+}
+ordenacion.innerHTML="ordenada minusculas: "+nuevaArray.sort();
+var contador=0;
+for(let i=0; i<array.length;i++){
+    contador += array[i].length;
+}
+numCaracteres.innerHTML=contador;
+
+var arrayOrdenMayus = new Array();
+for(let i =0; i < nuevaArray.length ; i++){
+    var nueva = nuevaArray[i];
+    for (let j = 0 ; j< array.length; j++) {
+        if(array[j].toLowerCase().localeCompare(nueva)==0){
+            arrayOrdenMayus.push(array[j]);
+            
+        }
+    }
+}
+ordenacionMayus.innerHTML="Orden con mayus originales: "+arrayOrdenMayus;
+sinOrdenacion.innerHTML="Original: "+array;
+
+</script>
+</body>
+</html>

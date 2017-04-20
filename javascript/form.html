@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function validateForm() {
+    var x = document.forms["myForm"]["fname"].value;
+    if (x == "") {
+        alert("Name must be filled out");
+        return false;
+    }
+}
+function longitudForm(){
+	var x = document.forms["myForm"]["fname"].value;
+	var y = parseInt(x);
+	y=6 - (x.length+1);
+	if (x.length+1 < 6) {
+		document.getElementById("validacion").innerHTML="Faltan "+y+" caracteres";
+		document.getElementById("fondo").style.backgroundColor="red";
+		document.getElementById("fondo").style.color="white";
+	}else{
+		document.getElementById("validacion").style.display="none";
+		document.getElementById("fondo").style.backgroundColor="lightgreen";
+		document.getElementById("fondo").style.color="black";
+		document.getElementById("bnt").disabled=false;
+	}
+}
+</script>
+</head>
+<body>
+
+<form name="myForm" action="/action_page_post.php"
+onsubmit="return validateForm()" onkeydown="longitudForm()" method="post">
+Name: <input id="fondo" type="text" name="fname">
+<input id="bnt" type="submit" value="Submit" disabled=true><span id="validacion" style="margin-left: 10px"></span>
+</form>
+
+
+</body>
+</html>

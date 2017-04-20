@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <style>
+            #carro {
+                width: 550px;
+                height: 70px;
+                padding: 10px;
+                border: 1px solid #aaaaaa;
+            }
+            #tienda {
+                width: 90%;
+                height: auto;
+                margin:5%;
+                padding: 10px;
+                border: 1px solid #aaaaaa;
+            }
+            img{
+                width: auto;
+                height: 69px;
+                border: 1px solid black;
+            }
+        </style>
+        <script>
+            function allowDrop(ev) {
+                ev.preventDefault();
+            }
+
+            function drag(ev) {
+                ev.dataTransfer.setData("text", ev.target.id);
+            }
+
+            function drop(ev) {
+                ev.preventDefault();
+                var data = ev.dataTransfer.getData("text");
+                var aux = document.getElementById(data).parentNode.id;
+                if((ev.target.id=="carro" && aux != "carro") || (ev.target.children && aux != "carro")){
+                    document.getElementById("carro").appendChild(document.getElementById(data));
+                    
+                }else if(ev.target.id=="tienda" && aux != "tienda"){
+                    document.getElementById("tienda").appendChild(document.getElementById(data));
+                }
+				document.getElementById("contador").innerHTML=document.getElementById("carro").children.length;
+            }
+        </script>
+    </head>
+    <body>
+        <p>Carro</p>
+        <div id="carro" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div>Items en carro: <span id="contador">0</span></div>
+        <br>
+        <h1>Tienda</h1>
+        <div id="tienda" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <img id="drag1" src="1.png" draggable="true" ondragstart="drag(event)">
+            <img id="drag2" src="2.png" draggable="true" ondragstart="drag(event)">
+            <img id="drag3" src="3.png" draggable="true" ondragstart="drag(event)">
+            <img id="drag4" src="4.jpg" draggable="true" ondragstart="drag(event)">
+        </div>
+    </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.azul{
+    background-color: blue;
+    width: 5em;
+    height: 5em;
+    color:white;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 5em;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+    //$("body").append("<div>Hola</div>");
+    $("body").append("<button>On / Off</button>");
+    $("button").click(function(){
+        $("div").toggleClass("azul");
+        //alert($("div").css("visibility"));
+
+        /*if($("div").css("visibility")=="visible"){
+            $("div").css("visibility","hidden");
+        }else{
+            $("div").css("visibility","visible");
+        }*/
+        var aux="";
+        for(let i = 0; i<$("p").text().length-1;i++){
+            aux+=$("p").text()[i];
+        }
+        $("p").html(aux);
+
+    });
+
+});
+
+
+</script>
+
+</head>
+<body>
+<div><p>Hola</p></div>
+
+
+</body>
+</html>

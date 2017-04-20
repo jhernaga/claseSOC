@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<button onclick="random()">Random</button>
+	<div style="display: inline" id="resultado"></div>
+	
+	<script>
+		function random(){
+            var numero=Math.floor(Math.random() * (10 - 0)) + 0;
+        	document.getElementById("resultado").innerHTML=numero;
+		}
+	</script>
+</body>
+</html>
