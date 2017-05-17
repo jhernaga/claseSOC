@@ -1,0 +1,4 @@
+mysql-shorttis.alwaysdata.net
+shorttis
+jordi88
+shorttis_php

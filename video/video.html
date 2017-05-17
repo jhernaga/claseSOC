@@ -1,0 +1,65 @@
+<!DOCTYPE html> 
+<html> 
+<body> 
+
+<div style="text-align:center"> 
+  <button onclick="playPause()">Play/Pause</button> 
+  <button onclick="mute()">mute/sound</button> 
+  <button onclick="makeBig()">Big</button>
+  <button onclick="makeSmall()">Small</button>
+  <button onclick="makeNormal()">Normal</button>
+  <br><br>
+  <video id="video1" width="420" controls>
+    <source src="conejo.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+    <br>
+    <button id="btnConejo" onclick="cambiarConejo()" disabled=true>Conejo</button> 
+    <button id="btnOso" onclick="cambiarOso()">Oso</button> 
+</div> 
+
+<script> 
+
+var myVideo = document.getElementById("video1"); 
+
+function cambiarConejo(){
+    document.getElementById("video1").src="conejo.mp4";
+    document.getElementById("btnOso").disabled=false;
+    document.getElementById("btnConejo").disabled=true;
+    
+}
+function cambiarOso(){
+    document.getElementById("video1").src="oso.mp4";
+    document.getElementById("btnConejo").disabled=false;
+    document.getElementById("btnOso").disabled=true;
+}
+    
+    
+function playPause() { 
+    if (myVideo.paused) 
+        myVideo.play(); 
+    else 
+        myVideo.pause(); 
+} 
+function mute() { 
+    if (myVideo.muted) 
+        myVideo.muted=false; 
+    else 
+        myVideo.muted=true; 
+} 
+function makeBig() { 
+    myVideo.width = 560; 
+} 
+
+function makeSmall() { 
+    myVideo.width = 320; 
+} 
+
+function makeNormal() { 
+    myVideo.width = 420; 
+} 
+</script> 
+
+<p>Video courtesy of <a href="https://www.bigbuckbunny.org/" target="_blank">Big Buck Bunny</a>.</p>
+</body> 
+</html>
